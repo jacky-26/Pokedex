@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokédex</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"
+    />
+    <link rel="stylesheet" href="style/styles.css" />
+  </head>
+  <body>
+    <div id="dex">
+      <!-- TOPBAR -->
+      <div class="topbar">
+        <div class="brand">
+          <a href="index.html">
+            <span class="brand-name">Pokédex</span>
+          </a>
+        </div>
+
+        <div class="topbar-right">
+          <div class="searchbox">
+            <i class="ti ti-search si"></i>
+            <input
+              type="text"
+              id="srch"
+              placeholder="Search name or number..."
+              autocomplete="off"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- BODY -->
+      <div class="body">
+        <!-- GRID -->
+        <div class="gpanel">
+          <div class="glabel" id="glabel"></div>
+          <div class="grid" id="grid"></div>
+        </div>
+
+        <!-- DETAIL PANEL -->
+        <div class="dpanel" id="dpanel">
+          <div class="dpanel-glow" id="dglow"></div>
+          <div class="dempty" id="dempty">
+            <div class="dempty-ring">
+              <i class="ti ti-pokeball"></i>
+            </div>
+            <p>Tap a Pokémon to explore its stats and details</p>
+          </div>
+          <div class="dcontent" id="dcontent" style="display: none"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script/scripts.js"></script>
+  </body>
+</html>
