@@ -1,12 +1,41 @@
 const pokemonGrid = document.getElementById('grid');
 
+let page = 1;
+let allPokemon = [];
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+
+let limit = 12;
+prevBtn.addEventListener('click', async () => {
+  if (page > 1) {
+    page--;
+    await loadPokemon();
+  }
+});
+
+nextBtn.addEventListener('click', async () => {
+  page++;
+  await loadPokemon();
+});
+
+async function loadAllPokemon() {
+  const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=10000');
+  const data = await res.json();
+  allPokemon = data.results;
+}
+
 async function loadPokemon() {
-  const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=500');
+  pokemonGrid.innerHTML = '';
+  const res = await fetch(
+    `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${(page - 1) * limit}`,
+  );
+
   const data = await res.json();
 
   for (const entry of data.results) {
     const pokemon = await fetch(entry.url).then((r) => r.json());
     renderCard(pokemon);
+    console.log(pokemon);
   }
 }
 
@@ -19,7 +48,7 @@ function renderCard(pokemon) {
     <p class="pokemon-name">${pokemon.name}</p>
   `;
   card.addEventListener('click', () => showDetails(pokemon));
-  grid.appendChild(card);
+  pokemonGrid.appendChild(card);
 }
 
 function showDetails(pokemon) {
@@ -85,37 +114,39 @@ function showDetails(pokemon) {
   `;
 }
 
-let allPokemon = [];
-
-async function loadPokemon() {
-  const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=500');
-  const data = await res.json();
-  for (const entry of data.results) {
-    const pokemon = await fetch(entry.url).then((r) => r.json());
-    allPokemon.push(pokemon);
+function renderPokemonList(pokemonList) {
+  pokemonGrid.innerHTML = '';
+  pokemonList.forEach((pokemon) => {
     renderCard(pokemon);
-  }
-
-  function renderPokemonList(pokemonList) {
-    grid.innerHTML = '';
-    pokemonList.forEach((pokemon) => {
-      renderCard(pokemon);
-    });
-  }
-  const searchInput = document.getElementById('srch');
-
-  searchInput.addEventListener('input', (e) => {
-    const query = e.target.value.toLowerCase().trim();
-
-    const filteredPokemon = allPokemon.filter((pokemon) => {
-      return (
-        pokemon.name.toLowerCase().includes(query) ||
-        String(pokemon.id).includes(query)
-      );
-    });
-
-    renderPokemonList(filteredPokemon);
   });
 }
 
+const searchInput = document.getElementById('srch');
+
+searchInput.addEventListener('input', async (e) => {
+  const query = e.target.value.toLowerCase().trim();
+
+  /* EMPTY SEARCH */
+  if (query === '') {
+    await loadPokemon();
+
+    return;
+  }
+
+  pokemonGrid.innerHTML = '';
+
+  const filtered = allPokemon.filter((pokemon) => {
+    const id = pokemon.url.split('/').filter(Boolean).pop();
+
+    return pokemon.name.includes(query) || id.padStart(3, '0').includes(query);
+  });
+
+  for (const entry of filtered.slice(0, 20)) {
+    const pokemon = await fetch(entry.url).then((r) => r.json());
+
+    renderCard(pokemon);
+  }
+});
+
 loadPokemon();
+loadAllPokemon();
