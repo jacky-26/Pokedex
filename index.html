@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pokédex</title>
+    <title>Landing Page</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,54 +17,138 @@
     <link rel="stylesheet" href="style/styles.css" />
   </head>
   <body>
-    <div id="dex">
-      <!-- TOPBAR -->
-      <div class="topbar">
-        <div class="brand">
-          <a href="index.html">
-            <span class="brand-name">Pokédex</span>
-          </a>
-        </div>
-
-        <div class="topbar-right">
-          <div class="searchbox">
-            <i class="ti ti-search si"></i>
-            <input
-              type="text"
-              id="srch"
-              placeholder="Search name or number..."
-              autocomplete="off"
-            />
-          </div>
-        </div>
+    <div class="landing-topbar">
+      <div class="brand">
+        <a href="index.html">
+          <h1 class="brand-name">Pokédex</h1>
+        </a>
       </div>
-
-      <!-- BODY -->
-      <div class="body">
-        <!-- GRID -->
-        <div class="gpanel">
-          <div class="glabel" id="glabel"></div>
-          <div class="grid" id="grid"></div>
-        </div>
-
-        <!-- DETAIL PANEL -->
-        <div class="dpanel" id="dpanel">
-          <div class="dpanel-glow" id="dglow"></div>
-          <div class="dempty" id="dempty">
-            <div class="dempty-ring">
-              <i class="ti ti-pokeball"></i>
-            </div>
-            <p>Tap a Pokémon to explore its stats and details</p>
-          </div>
-          <div class="dcontent" id="dcontent" style="display: none"></div>
-        </div>
-      </div>
-      <div class="pagination">
-        <button class="prev-btn">Previous</button>
-        <button class="next-btn">Next</button>
+      <div class="landing-nav">
+        <ul class="nav-links">
+          <li><a href="#features-section">Features</a></li>
+          <li><a href="#types-section">Types</a></li>
+          <li><a href="pokedex.html" class="cta-btn">Open Pokédex</a></li>
+        </ul>
       </div>
     </div>
-
-    <script src="script/scripts.js"></script>
+    <div class="hero-section">
+      <h1>Discover the World of <span class="highlight-word">Pokémon</span></h1>
+      <p>
+        Explore every Pokémon across all generations. Discover their stats,
+        types, moves, evolutions, and more. This is your ultimate trainer
+        companion.
+      </p>
+      <a href="pokedex.html" class="cta-btn">Open Pokédex</a>
+    </div>
+    <div class="stats-section">
+      <div class="stats-item">
+        <div>
+          <h1>10K+</h1>
+          <p>Pokémon</p>
+        </div>
+        <div>
+          <h1>9</h1>
+          <p>Generations</p>
+        </div>
+        <div>
+          <h1>18</h1>
+          <p>Types</p>
+        </div>
+        <div>
+          <h1>900+</h1>
+          <p>Moves</p>
+        </div>
+      </div>
+    </div>
+    <div id="features-section">
+      <div class="feature-title">
+        <h2>What's Inside</h2>
+        <h1>Everything a Trainer Needs</h1>
+      </div>
+      <div class="feature-items">
+        <div class="feature-card">
+          <h1>Search & Filter</h1>
+          <p>
+            Find any Pokémon instantly by name, number, type, or generation with
+            blazing- fast search.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h1>Base Stats</h1>
+          <p>
+            View HP, Attack, Defense, Sp. Atk, Sp. Def, and Speed with visual
+            stat bars for every Pokémon.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h1>Evolution Chains</h1>
+          <p>
+            Trace the full evolution line. Conditions, levels, items, and
+            branching forms included.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h1>Move Pool</h1>
+          <p>
+            Browse every learnable move with power, accuracy, type, and PP stats
+            clearly displayed.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h1>Type Matchups</h1>
+          <p>
+            See strengths, weaknesses, immunities, and resistances at a glance
+            using color- coded charts.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h1>Sprite Gallery</h1>
+          <p>
+            Toggle between regular and shiny sprites. From front, back, to
+            animated where available.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="types-section">
+      <div class="types-title">
+        <h2>All Pokémon Types</h2>
+        <h1>Know Your Matchups</h1>
+      </div>
+      <div class="type-items">
+        <h1 class="type-badge fire">Fire</h1>
+        <h1 class="type-badge water">Water</h1>
+        <h1 class="type-badge grass">Grass</h1>
+        <h1 class="type-badge electric">Electric</h1>
+        <h1 class="type-badge psychic">Psychic</h1>
+        <h1 class="type-badge ice">Ice</h1>
+        <h1 class="type-badge dragon">Dragon</h1>
+        <h1 class="type-badge dark">Dark</h1>
+        <h1 class="type-badge fairy">Fairy</h1>
+        <h1 class="type-badge normal">Normal</h1>
+        <h1 class="type-badge fighting">Fighting</h1>
+        <h1 class="type-badge flying">Flying</h1>
+        <h1 class="type-badge poison">Poison</h1>
+        <h1 class="type-badge ground">Ground</h1>
+        <h1 class="type-badge rock">Rock</h1>
+        <h1 class="type-badge ghost">Ghost</h1>
+        <h1 class="type-badge steel">Steel</h1>
+        <h1 class="type-badge bug">Bug</h1>
+      </div>
+    </div>
+    <div class="cta-section">
+      <div class="cta-title">
+        <h1>Ready to catch <span class="highlight-word">'em all?</span></h1>
+        <p>Your Pokemon is waiting</p>
+      </div>
+      <div><a href="pokedex.html" class="cta-btn">Open Pokédex</a></div>
+    </div>
+    <div class="footer">
+      <h1>Pokédex</h1>
+      <p>
+        Pokémon and all related names are trademarks of Nintendo / Game Freak.
+        Personal Project. Not affiliated.
+      </p>
+    </div>
   </body>
 </html>
