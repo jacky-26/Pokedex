@@ -920,6 +920,22 @@ html {
   border-bottom: 1px solid var(--border);
 }
 
+@media (max-width: 600px) {
+  .landing-topbar {
+    flex-direction: row;
+  }
+  .nav-btn {
+    display: none;
+  }
+  .brand-name {
+    font-size: 24px;
+  }
+  .nav-links .cta-btn {
+    font-size: 9px !important;
+    white-space: nowrap;
+  }
+}
+
 .landing-nav {
   display: flex;
   gap: 24px;
@@ -1013,14 +1029,13 @@ h1 .highlight-word {
 .stats-section {
   gap: 40px;
   padding: 40px 24px;
-  justify-content: space-between;
   background-color: var(--bg4);
 }
 
 .stats-item {
-  justify-content: space-around;
   display: flex;
-  text-align: center;
+  justify-content: space-between;
+  padding: 0 150px;
 }
 
 .stats-item h1 {
@@ -1063,6 +1078,17 @@ h1 .highlight-word {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 50px;
+}
+
+@media (max-width: 768px) {
+  .feature-items {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .stats-item {
+    justify-content: center;
+    text-align: center;
+    display: grid;
+  }
 }
 
 .feature-card {
